@@ -198,10 +198,14 @@ def parse_cmdline():
     parser = argparse.ArgumentParser(
         description='Generate cable and wiring harness documentation from YAML descriptions',
     )
-    parser.add_argument('input_file', action='store', type=str, metavar='YAML_FILE')
-    parser.add_argument('-o', '--output_file', action='store', type=str, metavar='OUTPUT')
-    parser.add_argument('--generate-bom', action='store_true', default=True)
-    parser.add_argument('--prepend-file', action='store', type=str, metavar='YAML_FILE')
+    parser.add_argument('input_file', action='store', type=str, metavar='YAML_FILE',
+                        help='Input file that defines the wiring configuration.')
+    parser.add_argument('-o', '--output_file', action='store', type=str, metavar='OUTPUT',
+                        help='Name of file to output wiring diagram.')
+    parser.add_argument('--generate-bom', action='store_true', default=True,
+                        help='Generate a Bill of Materials.')
+    parser.add_argument('--prepend-file', action='store', type=str, metavar='YAML_FILE',
+                        help="Prepend additional YAML files to the main input file")
     return parser.parse_args()
 
 
